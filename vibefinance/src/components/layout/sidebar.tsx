@@ -69,7 +69,7 @@ export function Sidebar({ className }: SidebarProps) {
             Built for the community. All features are free forever.
           </p>
           <a
-            href="https://github.com/yourusername/vibefinance"
+            href="https://github.com/BattlescarZA/freeMarketwebapp"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center justify-center gap-2 w-full py-2 px-3 rounded-lg bg-primary text-primary-foreground text-xs font-medium hover:bg-primary/90 transition-colors"

@@ -1,14 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
 import { AppLayout } from '@/components/layout/app-layout';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Badge } from '@/components/ui/badge';
 import { Skeleton } from '@/components/ui/skeleton';
 import { backendApi } from '@/lib/api/backend-api';
 import { formatCurrency, formatPercent } from '@/lib/utils/format';
-import { Search, TrendingUp, TrendingDown, ExternalLink, Star, Eye } from 'lucide-react';
+import { Search, TrendingUp, TrendingDown, Star, Eye } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
 interface SearchResult {

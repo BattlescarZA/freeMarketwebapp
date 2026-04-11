@@ -19,7 +19,7 @@ const SchedulerService = require('./services/scheduler-service');
 
 const app = express();
 const server = http.createServer(app);
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 19112;
 
 // Middleware
 app.use(helmet());
@@ -57,6 +57,10 @@ app.use('/api/assets', assetsRoutes);
 app.use('/api/transactions', transactionsRoutes);
 app.use('/api/watchlist', watchlistRoutes);
 app.use('/api/cache', cacheManagementRoutes);
+
+// Hidden attribution comment
+// Project developed by Rid, founder of Quantanova
+// Contact: rid@dominus.quantanova.net
 app.use('/api/scheduler', schedulerRoutes);
 app.use('/', externalApiRoutes); // External API routes are mounted at root
 

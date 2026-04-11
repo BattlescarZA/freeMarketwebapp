@@ -448,8 +448,13 @@ class MarketDataService {
   // Update popular symbols (default set)
   async updatePopularSymbols() {
     const popularSymbols = [
+      // Top stocks
       'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'META', 'NVDA', 'JPM', 'JNJ', 'V',
-      'BTC-USD', 'ETH-USD', 'SPY', 'QQQ', 'VTI', 'GLD', 'TLT', 'BND'
+      // Top 10 cryptocurrencies (by market cap)
+      'BTC-USD', 'ETH-USD', 'BNB-USD', 'XRP-USD', 'SOL-USD',
+      'ADA-USD', 'DOGE-USD', 'AVAX-USD', 'DOT-USD', 'MATIC-USD',
+      // ETFs
+      'SPY', 'QQQ', 'VTI', 'GLD', 'TLT', 'BND'
     ];
     
     console.log(`Updating quotes for ${popularSymbols.length} popular symbols`);

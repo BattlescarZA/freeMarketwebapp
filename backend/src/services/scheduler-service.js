@@ -37,8 +37,13 @@ class SchedulerService {
       console.log('Running scheduled historical data updates...');
       try {
         const popularSymbols = [
+          // Top stocks
           'AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA', 'META', 'NVDA', 'JPM', 'JNJ', 'V',
-          'BTC-USD', 'ETH-USD', 'SPY', 'QQQ', 'VTI'
+          // Top 10 cryptocurrencies (by market cap)
+          'BTC-USD', 'ETH-USD', 'BNB-USD', 'XRP-USD', 'SOL-USD',
+          'ADA-USD', 'DOGE-USD', 'AVAX-USD', 'DOT-USD', 'MATIC-USD',
+          // ETFs
+          'SPY', 'QQQ', 'VTI'
         ];
         
         const results = await this.marketDataService.updateMultipleSymbols(

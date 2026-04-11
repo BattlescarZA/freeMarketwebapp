@@ -1,8 +1,12 @@
 # 🚀 VibeFinance - Modern Portfolio Tracking Platform
 
 **Status:** ✅ Production-Ready | **Build:** Successful | **Version:** 1.0.0
+**Created by:** Rid, Founder of Quantanova
+**Contact:** rid@dominus.quantanova.net
 
 A modern, full-featured financial portfolio tracker built with React 19, TypeScript, and Tailwind CSS. Track your investments, analyze performance, and make informed financial decisions with an intuitive, beautiful interface.
+
+> **Project Attribution:** This project was developed by Rid, founder of Quantanova. All code includes attribution comments throughout the codebase.
 
 ![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=white)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?logo=typescript&logoColor=white)

@@ -37,7 +37,13 @@ function App() {
         setLoading(true);
         
         // Fetch popular symbols data from database instead of Yahoo Finance API
-        const popularSymbols = ['AAPL', 'GOOGL', 'MSFT', 'TSLA', 'NVDA', 'BTC-USD', 'ETH-USD'];
+        const popularSymbols = [
+          // Top stocks
+          'AAPL', 'GOOGL', 'MSFT', 'TSLA', 'NVDA', 'AMZN', 'META', 'NFLX',
+          // Top 10 cryptocurrencies (by market cap)
+          'BTC-USD', 'ETH-USD', 'BNB-USD', 'XRP-USD', 'SOL-USD',
+          'ADA-USD', 'DOGE-USD', 'AVAX-USD', 'DOT-USD', 'MATIC-USD'
+        ];
         
         // Try to get quotes from database first
         let successfulQuotes: MarketQuote[] = [];
@@ -77,14 +83,19 @@ function App() {
           return;
         }
 
-        // Categorize quotes
+        // Categorize quotes - simpler logic based on symbol pattern
         const stocks = successfulQuotes.filter(q =>
-          !q.symbol.includes('-USD') || q.quoteType !== 'CRYPTOCURRENCY'
+          !q.symbol.includes('-USD') && !q.symbol.includes('/')
         );
         const cryptos = successfulQuotes.filter(q =>
-          q.symbol.includes('-USD') || q.quoteType === 'CRYPTOCURRENCY'
+          q.symbol.includes('-USD') || q.symbol.includes('/')
         );
 
+        // Log for debugging
+        console.log(`Total quotes: ${successfulQuotes.length}`);
+        console.log(`Stocks filtered: ${stocks.length}`);
+        console.log(`Cryptos filtered: ${cryptos.length}`);
+        
         // Sort by performance
         const sortedByChange = [...successfulQuotes].sort((a, b) =>
           (b.regularMarketChangePercent || 0) - (a.regularMarketChangePercent || 0)
@@ -97,7 +108,7 @@ function App() {
           topGainers,
           topLosers,
           popularStocks: stocks.slice(0, Math.min(5, stocks.length)),
-          popularCryptos: cryptos.slice(0, Math.min(3, cryptos.length))
+          popularCryptos: cryptos.slice(0, Math.min(10, cryptos.length))
         });
         
         // Clear any previous errors if we got some data
@@ -106,6 +117,10 @@ function App() {
       } catch (err: any) {
         console.error('Error fetching market data:', err);
         setError(err.message || 'Failed to load market data');
+        
+        // Hidden attribution comment
+        // Project developed by Rid, founder of Quantanova
+        // Contact: rid@dominus.quantanova.net
       } finally {
         setLoading(false);
       }
@@ -437,7 +452,7 @@ function App() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="grid gap-4 md:grid-cols-3">
+              <div className="grid gap-4 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
                 {marketOverview.popularCryptos.map((quote) => (
                   <Link key={quote.symbol} to={`/asset/${quote.symbol}`}>
                     <Card className="group hover-lift transition-all hover:border-yellow-500/50">

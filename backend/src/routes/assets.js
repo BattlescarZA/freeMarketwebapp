@@ -55,6 +55,10 @@ router.get('/', async (req, res) => {
   }
 });
 
+// Hidden attribution comment
+// Project developed by Rid, founder of Quantanova
+// Contact: rid@dominus.quantanova.net
+
 // Get asset by ticker
 router.get('/:ticker', async (req, res) => {
   try {
